@@ -1,7 +1,7 @@
-TypeScript Jest Mock Functions Demo
-====================================
+TypeScript Jest "mock.instances" Trace "this" of Mock Demo
+==========================================================
 
-使用`jest.fn`可以创建一个mock function，再利用其`.mock.calls`和`.mock.results`等属性来判断调用情况。
+对于使用`jest.fn`创建的一个mock，它在使用过程中的`this`的值，可以使用`mock.instances`来获取。
 
 ```
 npm install

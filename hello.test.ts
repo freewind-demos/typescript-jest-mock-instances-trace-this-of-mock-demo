@@ -1,10 +1,11 @@
-import {forEach} from './hello';
+test('trace this of mock', () => {
+  const myMock = jest.fn()
 
-test('forEach mock', () => {
-  const callback = jest.fn(x => x + 100)
-  forEach([1, 2], callback);
+  const a = new myMock();
 
-  expect(callback.mock.calls.length).toBe(2);
-  expect(callback.mock.calls[0][0]).toBe(1);
-  expect(callback.mock.results[0].value).toBe(101);
+  const b = {name: 'b'}
+  const bound = myMock.bind(b);
+  bound();
+
+  expect(myMock.mock.instances).toEqual([a, b])
 })
